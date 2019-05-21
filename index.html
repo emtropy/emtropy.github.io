@@ -110,6 +110,12 @@
             }).scroll();
 
             var config = {
+                apiKey: "AIzaSyC-X2-Q-Lx2dWYh0LhzMhePz7Shy51G4sU",
+                authDomain: "emtropy-labs-website.firebaseapp.com",
+                databaseURL: "https://emtropy-labs-website.firebaseio.com",
+                projectId: "emtropy-labs-website",
+                storageBucket: "emtropy-labs-website.appspot.com",
+                messagingSenderId: "307259816607"
             };
             
             firebase.initializeApp(config);
@@ -145,7 +151,7 @@
         <div id="top-background" style="max-width: 100%; width: 100%; position: absolute; top: 0; left: 0; height: 90%">
             <img style="max-width: 100%;  width: 100%; height: 100%; overflow: hidden;" src="./assets/topbackground.png"/>
         </div>
-        <div style="position: absolute; max-width: 100%; top: 210%; left: 0; height: 70%">
+        <div style="position: absolute; max-width: 100%; top: 220%; left: 0; height: 70%">
             <img style="max-width: 100%; height: 130%;  overflow: hidden;" src="./assets/pagebackground1.png"/>
             <img style="max-width: 100%; height: 125%; overflow: hidden;" src="./assets/pagebackground2.png"/>
         </div>
@@ -172,29 +178,29 @@
                 </div>            
             </nav>            
         </div>
-        <div class="container-fluid pb-4" style="z-index: 8;">
+        <div class="container-fluid pb-0" style="z-index: 8;">
             <div id="top" class="desc-section" style="z-index: 8; margin-top: 5%; width: 100%;">
                 <div class="row">
                     <div class="col-md-6 col-lg-6 col-sm-4">                
-                        <a style="font-family:'Lato', sans-serif; letter-spacing: 0.91; font-size: 40px; line-height: 60px; font-weight: 800; color: rgb(0,0,0);">
-                            Implementing a <br>
+                        <a style="font-family:'Lato', sans-serif; letter-spacing: 0.91; font-size: 49px; line-height: 65px; font-weight: 400; color: rgb(0,0,0);">
+                            Instrumenting a <br>
                             <span>Culture of  </span><span class="txt-rotate word" data-period="1000" data-rotate='[ " feedback", " learning", " leadership", " trust"]'></span>                       
-                        </a>    
+                        </a>
+                        <p class="mt-5" style="line-height: 35px; letter-spacing: 0.5; font-size: 18px; font-family:'Muli', sans-serif;">Winning cultures happen through small actions, habits, and choices. We help you unlock organizational potential with small changes. </p>
                         <div class="wrap1 mt-5">
                             <div class="form-group mr-4">
-                                <input type="email" class="form-control pr-5" id="email" style="font-family: 'Muli', sans-serif; font-size: 14px;" placeholder="Enter your work email here">
+                                <input type="email" class="form-control pr-5" id="email" style="font-family: 'Muli', sans-serif; letter-spacing: 0.29px; line-height: 0.29; font-size: 16px;" placeholder="Work Email">
                             </div>
                             <button class="button">GET ACCESS</button>        
                         </div>
                     </div>
-                    <div class="col-lg-2"></div>
-                    <div class="col-md-6 col-lg-4 col-sm-4">                
-                        <img src="./assets/heroImage.png" style="width: 100%"/>
-                    </div>
-
+                    <!-- <div class="col-lg-2"></div> -->
+                    <!-- <div class="col-md-6 col-lg-4 col-sm-4">                
+                        <img src="./assets/HeroImage1.png" style="width: 100%"/>
+                    </div> -->
                 </div>
             </div>
-            <div id="1" class="desc-section" style="width: 100%; margin-top: 15%">
+            <div id="1" class="desc-section" style="width: 100%; margin-top: 25%">
                 <h1 style="text-align:center;  font-family:'Lato', sans-serif; align-self: center; font-size: 38px; letter-spacing: 0.45; line-height: 60px; font-weight: 800;">How it works</h1>
                 <div class="row mt-5">
                     <div class="col-md-6 col-lg-4">
@@ -219,14 +225,14 @@
             </div>
             <div id="2" class="desc-section" style="margin-top: 15%; width: 100%;">
                 <div class="row">
-                    <div class="col-md-6 col-lg-5">
-                        <img src="./assets/imagePlaceholder.png" style="width: 90%;"/>
+                    <div class="col-md-6 col-lg-6">
+                        <img src="./assets/imagePlaceholder.png" style="width: 100%;"/>
                     </div>
-                    <div class="col-lg-2">
+                    <div class="col-lg-1">
                     </div>    
                     <div class="col-md-6 col-lg-5">
-                        <span style="font-family:'Lato', sans-serif; letter-spacing: 0.45; font-size: 38px; line-height: 60px; font-weight: 800; color: rgb(0,0,0);">Proprietary</span>
-                        <span style="font-family:'Lato', sans-serif; letter-spacing: 0.45; font-size: 38px; line-height: 60px; font-weight: 800; color: rgb(0,0,0);">Machine</span>                    
+                        <span style="font-family:'Lato', sans-serif; letter-spacing: 0.45; font-size: 38px; line-height: 60px; font-weight: 800; color: rgb(0,0,0);">Proprietary <br></span>
+                        <span style="font-family:'Lato', sans-serif; letter-spacing: 0.45; font-size: 38px; line-height: 60px; font-weight: 800; color: rgb(0,0,0);">Machine<br></span>                    
                         <span style="font-family:'Lato', sans-serif; letter-spacing: 0.45; font-size: 38px; line-height: 60px; font-weight: 800; color: rgb(0,0,0);">Learning</span>                    
                         <p class="mt-4" style="line-height: 35px; letter-spacing: 0.5; font-size: 16px; font-family:'Muli', sans-serif;">We use a smart machine learning engine to deliver skill analysis and personalized microlearning programs.</p>    
                     </div>
@@ -306,9 +312,9 @@
                             <button id="bottomSubmit" class="button-custom mt-4 mr-3" onclick="submitEmail();">GET ACCESS</button>
                         </div>
                     </div>
-                    <div class="col-lg-2">
+                    <div class="col-lg-1">
                     </div>
-                    <div class="col-md-6 col-lg-5">
+                    <div class="col-md-6 col-lg-6">
                         <img src="./assets/logo.png"/>
                         <p class="mt-3" style="line-height: 30px; letter-spacing: 0.51; font-size: 14px; color: black; font-family:'Muli', sans-serif;">Emtropy labs helps organisations become better by using machine learning and personalised micro learning programs</p>
                         <h3 class="mt-2" style="font-family:'Cabin', sans-serif; font-size: 18px; line-height: 24px; font-weight: 700; color: rgb(0,0,0);">Address</h3>        
@@ -318,7 +324,8 @@
                                     Graphite Junction,
                                     Bangalore, 560066</p>
                             </div>
-                            <div class="col-md-6 col-lg-5 ml-4">
+                            <div class="col-lg-1"></div>
+                            <div class="col-md-6 col-lg-4">
                                 <p style="line-height: 30px; letter-spacing: 0.5; font-size: 14px; font-family:'Muli', sans-serif;">867 Boylston St 5th Floor, Boston, MA 02116, USA</p>
                             </div>
                         </div>
@@ -327,23 +334,24 @@
                                 <h3 class="mt-2" style="font-family:'Muli', sans-serif; font-size: 18px; line-height: 24px; font-weight: 700; color: rgb(0,0,0);">Phone</h3>        
                                 <p style="line-height: 30px; font-size: 14px; font-family:'Sarabun', sans-serif;">+1 617-421-8692</p>
                             </div>
-                            <div class="col-md-6 col-lg-5 ml-4">
+                            <div class="col-lg-1"></div>
+                            <div class="col-md-6 col-lg-4">
                                 <h3 class="mt-2" style="font-family:'Muli', sans-serif; font-size: 18px; line-height: 24px; font-weight: 700; color: rgb(0,0,0);">Email</h3>        
                                 <p style="line-height: 30px; color: rgb(86, 79, 202); font-size: 14px; font-family:'Sarabun', sans-serif;">info@emtropylabs.com</p>
                             </div>
                         </div>
                         <div class="row mt-2">
-                            <div class="col-md-6 col-lg-5">
-                                <div style="display: flex">
+                            <div class="col-md-6 col-lg-6">
+                                <div style="display: flex;">
                                     <a href="https://www.linkedin.com" target="_blank"><img  style="width: 30px; height: 30px" src="./assets/linkedin.png" srcset="./assets/linkedin.png 1x, ./assets/linkedin@2x.png 2x"/></a>
                                     <a href="https://www.twitter.com" target="_blank"><img class="ml-2" style="width: 30px; height: 30px" src="./assets/twitter.png" srcset="./assets/twitter.png 1x, ./assets/twitter@2x.png 2x"/></a>
                                     <a href="https://www.angelist.com" target="_blank"><img class="ml-2" style="width: 30px; height: 30px" src="./assets/angelist.png" srcset="./assets/angelist.png 1x, ./assets/angelist@2x.png 2x"/><a>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-lg-6 ml-4">
-                                <div style="display: flex">
-                                    <p style="line-height: 30px; color: rgb(86, 79, 202); letter-spacing: 0.5; font-size: 14px; font-family:'Muli', sans-serif;">Privacy</p>
-                                    <p class="ml-1" style="line-height: 30px; color: rgb(86, 79, 202); letter-spacing: 0.5; font-size: 14px; font-family:'Muli', sans-serif;">Terms of use</p>        
+                            <div class="col-md-6 col-lg-6">
+                                <div class="container pl-0" style="overflow: hidden; width: 100%; display: flex;">
+                                    <a href="" style="align-self: flex-start; line-height: 30px; color: rgb(86, 79, 202); letter-spacing: 0.1; font-size: 14px; font-family:'Muli', sans-serif;">Privacy</p>        
+                                    <a class="ml-5" href="" style="align-content: flex-end; line-height: 30px; color: rgb(86, 79, 202); letter-spacing: 0.1; font-size: 14px; font-family:'Muli', sans-serif;">Terms of use</p>        
                                 </div>
                             </div>                                                
                         </div>

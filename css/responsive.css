@@ -43,7 +43,7 @@ input::placeholder {
     font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-weight: 500;
+    font-weight: bold;
     color: rgb(0, 0, 0);
     background-color: rgb(141, 233, 196);
     border: none;
@@ -67,10 +67,15 @@ input::placeholder {
   
   /* Style the links inside the navigation bar */
   .topnav a {
+    transition: all .2s linear;
     font-size: 14px;
-    border-bottom: 2px solid transparent;
   }
-  .topnav a:hover,
+  .topnav a:hover {
+    color: #000;
+    font-weight: bold;
+    transform: scale(1.1);
+    border-bottom: 2px solid rgb(75, 196, 143);
+  }
   .topnav a.active,
   .topnav a.current {
     color: #000;
@@ -80,7 +85,7 @@ input::placeholder {
 
 
 .desc-section {
-  max-width: 900px;
+  max-width: 920px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -137,9 +142,9 @@ input::placeholder {
 .word {
   font-family:'Lato', sans-serif; 
   letter-spacing: 0.91; 
-  font-size: 40px; 
-  line-height: 60px; 
-  font-weight: 800; 
-  color: rgb(72,62,255);
+  font-size: 49px; 
+  line-height: 65px; 
+  font-weight: bold; 
+  color: black;
   border: none;
 }
