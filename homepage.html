@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Emtropy</title>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81044946-6"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', 'UA-81044946-6');
+            </script>
+
+           <!-- Bootstrap core CSS -->
+        <link href="library/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://www.gstatic.com/firebasejs/4.7.0/firebase.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script src="./library/jquery.toast.min.js"></script>
+        <link href="library/jquery.toast.min.css" rel="stylesheet"/>
+
+        <script>
+            $(document).ready(function() {
+                $('a[href*=#]').bind('click', function(e) {
+                    var target = $(this).attr("href"); // Set the target as variable
+                    // perform animated scrolling by getting top-position of target-element and set it as scroll target
+                    $(this).closest(".navbar-nav").find(".nav-link").removeClass("current");
+                    $(this).addClass("current");
+                    $('html, body').stop().animate({
+                            scrollTop: $(target).offset().top - 100
+                    }, 600);
+                });
+            });
+
+            $(window).scroll(function() {
+                var scrollDistance = $(window).scrollTop();
+
+                // Assign active class to nav links while scolling
+                $('.desc-section').each(function(i) {
+                        if ($(this).position().top <= scrollDistance) {
+                                $('.top-nav a:active').removeClass('active');
+                                $('.top-nav a').eq(i).addClass('active');
+                        }
+                });
+            }).scroll();
+
+            var config = {
+                apiKey: "AIzaSyC-X2-Q-Lx2dWYh0LhzMhePz7Shy51G4sU",
+                authDomain: "emtropy-labs-website.firebaseapp.com",
+                databaseURL: "https://emtropy-labs-website.firebaseio.com",
+                projectId: "emtropy-labs-website",
+                storageBucket: "emtropy-labs-website.appspot.com",
+                messagingSenderId: "307259816607"
+            };
+            
+            firebase.initializeApp(config);
+
+            var dbRef = firebase.database();
+            var emailRef = dbRef.ref().child('users');
+
+            function submitEmail() {
+			//Grab order data from the form
+                var user = {
+                    name: $('#name').val(), //another way you could write is $('#myForm [name="fullname"]').
+                    emailContact: $('#emailContact').val(), //another way you could write is $('#myForm [name="fullname"]').
+                    phone: $('#phone').val()
+                };
+                
+                //'push' (aka add) your order to the existing list
+                console.log(user);
+                emailRef.push(user); //'orders' is the name of the 'collection' (aka database table)
+
+                $.toast({heading: 'Saved Successfully!', position: 'top-center'});
+    		};
+        </script>
+
+        <!-- Custom styles for this template -->
+        <link href="css/responsive.css" rel="stylesheet">
+
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cabin" /> -->
+    </head>
+    <body style="position: relative;">
+        <div id="top-background" style="max-width: 100%; width: 100%; position: absolute; top: 0; left: 0; height: 100%">
+            <img style="max-width: 100%;  width: 100%; height: 100%; overflow: hidden;" src="./assets/topbackground.png"/>
+        </div>
+        <div style="position: absolute; max-width: 100%; top: 230%; left: 0; height: 70%">
+            <img style="max-width: 100%; height: 130%;  overflow: hidden;" src="./assets/pagebackground1.png"/>
+            <img style="max-width: 100%; height: 125%; overflow: hidden;" src="./assets/pagebackground2.png"/>
+        </div>
+        <div class="container-fluid" style="position: fixed; background-color: white; top: 0; left: 0; margin-bottom: 8%; z-index: 8;">
+            <nav class="navbar bg-white navbar-expand-md">
+                <div class="container-fluid desc-section-head">
+                    <a href="#" class="navbar-brand"><img src="./assets/logo.png"/> </a>
+                    <nav class="collapse navbar-collapse" id="navbarTop">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item topnav">
+                                <a class="nav-link" href="#1"><span style="font-family:'Lato', sans-serif; color: rgb(53, 53, 53); font-size: 14px; letter-spacing: 0.51px">How it works</span></a>
+                            </li>
+                            <li class="nav-item ml-3 topnav">
+                                <a class="nav-link" href="#2"><span style="font-family:'Lato', sans-serif; color: rgb(53, 53, 53); font-size: 14px; letter-spacing: 0.51px">Machine Learning</span></a>
+                            </li>
+                            <li class="nav-item ml-3 topnav">
+                                <a class="nav-link" href="#3"><span style="font-family:'Lato', sans-serif; color: rgb(53, 53, 53); font-size: 14px; letter-spacing: 0.51px">Features</span></a>
+                            </li>
+                            <li class="nav-item ml-3 topnav">
+                                <a class="nav-link" href="#4"><span style="font-family:'Lato', sans-serif; color: rgb(53, 53, 53); font-size: 14px; letter-spacing: 0.51px">Contact Us</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>            
+            </nav>            
+        </div>
+        <div class="container-fluid pb-4" style="z-index: 8;">
+            <div id="top" class="desc-section" style="z-index: 8; margin-top: 5%; width: 100%;">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-4">                
+                        <span style="font-family:'Lato', sans-serif; letter-spacing: 0.91; font-size: 45px; line-height: 60px; font-weight: 800; color: rgb(0,0,0);">Drive big results</span>
+                        <span style="font-family:'Lato', sans-serif; letter-spacing: 0.91; font-size: 45px; line-height: 60px; font-weight: 800; color: rgb(0,0,0);">through small</span>                    
+                        <span style="font-family:'Lato', sans-serif; letter-spacing: 0.91; font-size: 45px; line-height: 60px; font-weight: 800; color: rgb(0,0,0);">changes.</span>                    
+                        <p class="mt-4" style="line-height: 35px; letter-spacing: 0.5; font-size: 18px; font-family:'Muli', sans-serif;">Winning cultures happen through small actions, habits, and choices. We help you unlock organizational potential with small changes.</p>
+                        <div class="wrap">
+                            <div class="form-group" style="width: 350px; height: 35px; margin-right: 10px">
+                                <input type="email" class="form-control" id="email" style="font-family: 'Muli', sans-serif; font-size: 14px" placeholder="Enter your work email here">
+                            </div>
+                            <!-- <textarea class="form-control"  placeholder="Email"></textarea> -->
+                            <button class="button">GET ACCESS</button>        
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-4">                
+                        <img src="./assets/heroImage.png" style="width: 90%"/>
+                    </div>
+
+                </div>
+            </div>
+            <div id="1" class="desc-section" style="width: 100%; margin-top: 15%">
+                <h1 style="text-align:center;  font-family:'Lato', sans-serif; align-self: center; font-size: 38px; letter-spacing: 0.45; line-height: 60px; font-weight: 800;">How it works</h1>
+                <div class="row mt-5">
+                    <div class="col-md-6 col-lg-4">
+                        <img src="./assets/360Feedbackicon.png" style="height: 60px; width:60px;"/>
+
+                        <h3 class="mt-3 mb-3" style="font-family:'Lato', sans-serif; font-size: 18px; line-height: 25px; letter-spacing: 0.64; font-weight: 800; color: rgb(0,0,0);">360 Feedback</h3>
+                        <p style="line-height: 30px; letter-spacing: 0.5; font-size: 16px; font-family:'Muli', sans-serif;">Share and request feedback from your managers, peers and direct reports. </p>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <img src="./assets/skillAnalysisIcon.png" style="height: 60px; width:60px;"/>
+
+                        <h3 class="mt-3 mb-3" style="font-family:'Lato', sans-serif; font-size: 18px; line-height: 25px; letter-spacing: 0.64; font-weight: 800; color: rgb(0,0,0);">Skill Analysis</h3>
+                        <p style="line-height: 30px; letter-spacing: 0.5; font-size: 16px; font-family:'Muli', sans-serif;">Our patented machine learning engine identifies and prioritizes.</p>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <img src="./assets/developmentIcon.png" style="height: 60px; width:40px;"/>
+
+                        <h3  class="mt-3 mb-3" style="font-family:'Lato', sans-serif; font-size: 18px; line-height: 25px; letter-spacing: 0.64;font-weight: 800; color: rgb(0,0,0);">Development</h3>
+                        <p style="line-height: 30px; letter-spacing: 0.5; font-size: 16px; font-family:'Muli', sans-serif;">Personalized microlearning programs closes skill gaps and fosters employee engegement.</p>
+                    </div>
+                </div>
+            </div>
+            <div id="2" class="desc-section" style="margin-top: 15%; width: 100%;">
+                <div class="row">
+                    <div class="col-md-6 col-lg-5">
+                        <img src="./assets/imagePlaceholder.png" style="width: 90%;"/>
+                    </div>
+                    <div class="col-lg-2">
+                    </div>    
+                    <div class="col-md-6 col-lg-5">
+                        <span style="font-family:'Lato', sans-serif; letter-spacing: 0.45; font-size: 38px; line-height: 60px; font-weight: 800; color: rgb(0,0,0);">Proprietary</span>
+                        <span style="font-family:'Lato', sans-serif; letter-spacing: 0.45; font-size: 38px; line-height: 60px; font-weight: 800; color: rgb(0,0,0);">Machine</span>                    
+                        <span style="font-family:'Lato', sans-serif; letter-spacing: 0.45; font-size: 38px; line-height: 60px; font-weight: 800; color: rgb(0,0,0);">Learning</span>                    
+                        <p class="mt-4" style="line-height: 35px; letter-spacing: 0.5; font-size: 16px; font-family:'Muli', sans-serif;">We use a smart machine learning engine to deliver skill analysis and personalized microlearning programs.</p>    
+                    </div>
+                </div>                        
+            </div>                    
+            <div id="3" class="desc-section" style="z-index: 8; width: 100%; margin-top: 25%">
+                <h1 style="text-align:center; z-index: 8; font-family:'Lato', sans-serif; align-self: center; font-size: 38px; letter-spacing: 0.45; line-height: 60px; font-weight: 800;">Features</h1>
+                <div class="row" style="margin-top: 15%">
+                    <div class="col-md-6 col-lg-4">
+                        <div style="display: flex">
+                            <img src="./assets/broadcastingIcon@2x.png" style="align-self: flex-start; height: 40px; width:40px;"/>
+                            <div class="ml-3">
+                                <h3 style="font-family:'Lato', sans-serif; font-size: 18px; letter-spacing: 0.64px; line-height: 25px; font-weight: 800; color: rgb(0,0,0);">Broadcasting</h3>        
+                                <p style="margin-top: 7px; line-height: 25px; letter-spacing: 0.66px; font-size: 14px; font-family:'Muli', sans-serif;">Broadcast vital information across the organisation.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div style="display: flex">
+                            <img src="./assets/continuousFeedbackIcon@2x.png" style="align-self: flex-start; height: 40px; width:40px;"/>
+                            <div class="ml-3">
+                                <h3 style="font-family:'Lato', sans-serif; font-size: 18px; letter-spacing: 0.64px; line-height: 24px; font-weight: 800; color: rgb(0,0,0);">Continuous Feedback</h3>        
+                                <p style="margin-top: 7px; line-height: 25px; letter-spacing: 0.66px; font-size: 14px; font-family:'Muli', sans-serif;">Eanble seamless company wide communication.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div style="display: flex">
+                            <img src="./assets/microlearningIcon@2x.png" style="align-self: flex-start; height: 40px; width:40px;"/>
+                            <div class="ml-3">
+                                <h3 style="font-family:'Lato', sans-serif; font-size: 18px;  letter-spacing: 0.64px; line-height: 24px; font-weight: 800; color: rgb(0,0,0);">Micro Learning</h3>        
+                                <p style="margin-top: 7px; line-height: 25px; letter-spacing: 0.66px; font-size: 14px; font-family:'Muli', sans-serif;">Personalised learning programs to get 1% better every week.</p>
+                            </div>                                
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-6 col-lg-4">
+                        <div style="display: flex">
+                            <img src="./assets/timleymeetingsIcon@2x.png" style="align-self: flex-start; height: 40px; width:40px;"/>
+                            <div class="ml-3">
+                                <h3 style="font-family:'Lato', sans-serif; font-size: 18px; letter-spacing: 0.64px; line-height: 24px; font-weight: 800; color: rgb(0,0,0);">Timely meetings</h3>        
+                                <p style="margin-top: 7px; line-height: 25px; letter-spacing: 0.66px; font-size: 14px; font-family:'Muli', sans-serif;">Schedule review meetings and set agenda in advance.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div style="display: flex" >
+                            <img src="./assets/goalManagementIcon@2x.png" style="align-self: flex-start; height: 40px; width:40px;"/>
+                            <div class="ml-3">
+                                <h3 style="font-family:'Lato', sans-serif; font-size: 18px; letter-spacing: 0.64px; line-height: 24px; font-weight: 800; color: rgb(0,0,0);">Goal Management</h3>        
+                                <p style="margin-top: 7px; line-height: 25px; letter-spacing: 0.66px; font-size: 14px; font-family:'Muli', sans-serif;">Set, manage and track long term organisational goals.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div style="display: flex">
+                            <img src="./assets/kudosIcons@2x.png" style="align-self: flex-start; height: 40px; width:40px;"/>
+                            <div class="ml-3">
+                                <h3 style="font-family:'Lato', sans-serif; font-size: 18px; letter-spacing: 0.64px; line-height: 24px; font-weight: 800; color: rgb(0,0,0);">Kudos</h3>        
+                                <p style="margin-top: 7px; line-height: 25px; letter-spacing: 0.66px; font-size: 14px; font-family:'Muli', sans-serif;">Develop a culture of positive feedback and rewards for employees.</p>
+                            </div>                                
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            <div id="4" class="desc-section" style="margin-top: 30%; width: 100%;">
+                <div class="row">
+                    <div class="col-md-6 col-lg-5">
+                        <div class="shadow p-5 mb-5 bg-white rounded">
+                            <h3 style="font-family:'Lato', sans-serif; font-size: 18px; line-height: 60px; font-weight: 800; color: rgb(0,0,0);">Try emtropy today!</h3>        
+                            <div class="form-group pr-3">
+                                <input type="text" class="input-sm form-control input-custom" id="name" placeholder="Name*" required>
+                                <input type="text" class="input-sm form-control input-custom mt-3" id="emailContact" placeholder="Work Email*" required>
+                                <input type="text" class="input-sm form-control input-custom mt-3" id="phone" placeholder="Phone">                              
+                            </div>                                    
+                            <button id="bottomSubmit" class="button-custom mt-4 mr-3" onclick="submitEmail();">GET ACCESS</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                    </div>
+                    <div class="col-md-6 col-lg-5">
+                        <img src="./assets/logo.png"/>
+                        <p class="mt-3" style="line-height: 30px; letter-spacing: 0.51; font-size: 14px; color: black; font-family:'Muli', sans-serif;">Emtropy labs helps organisations become better by using machine learning and personalised micro learning programs</p>
+                        <h3 class="mt-2" style="font-family:'Cabin', sans-serif; font-size: 18px; line-height: 24px; font-weight: 700; color: rgb(0,0,0);">Address</h3>        
+                        <div class="row">
+                            <div class="col-md-6 col-lg-5">
+                                <p style="line-height: 30px; letter-spacing: 0.51; font-size: 14px; font-family:'Muli', sans-serif;">1B, RMZ nxt, 13 Main,
+                                    Graphite Junction,
+                                    Bangalore, 560066</p>
+                            </div>
+                            <div class="col-md-6 col-lg-5 ml-4">
+                                <p style="line-height: 30px; letter-spacing: 0.5; font-size: 14px; font-family:'Muli', sans-serif;">867 Boylston St 5th Floor, Boston, MA 02116, USA</p>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6 col-lg-5">
+                                <h3 class="mt-2" style="font-family:'Muli', sans-serif; font-size: 18px; line-height: 24px; font-weight: 700; color: rgb(0,0,0);">Phone</h3>        
+                                <p style="line-height: 30px; font-size: 14px; font-family:'Sarabun', sans-serif;">+1 617-421-8692</p>
+                            </div>
+                            <div class="col-md-6 col-lg-5 ml-4">
+                                <h3 class="mt-2" style="font-family:'Muli', sans-serif; font-size: 18px; line-height: 24px; font-weight: 700; color: rgb(0,0,0);">Email</h3>        
+                                <p style="line-height: 30px; color: rgb(86, 79, 202); font-size: 14px; font-family:'Sarabun', sans-serif;">info@emtropylabs.com</p>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6 col-lg-5">
+                                <div style="display: flex">
+                                    <a href="https://www.linkedin.com" target="_blank"><img  style="width: 30px; height: 30px" src="./assets/linkedin.png" srcset="./assets/linkedin.png 1x, ./assets/linkedin@2x.png 2x"/></a>
+                                    <a href="https://www.twitter.com" target="_blank"><img class="ml-2" style="width: 30px; height: 30px" src="./assets/twitter.png" srcset="./assets/twitter.png 1x, ./assets/twitter@2x.png 2x"/></a>
+                                    <a href="https://www.angelist.com" target="_blank"><img class="ml-2" style="width: 30px; height: 30px" src="./assets/angelist.png" srcset="./assets/angelist.png 1x, ./assets/angelist@2x.png 2x"/><a>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6 ml-4">
+                                <div style="display: flex">
+                                    <p style="line-height: 30px; color: rgb(86, 79, 202); letter-spacing: 0.5; font-size: 14px; font-family:'Muli', sans-serif;">Privacy</p>
+                                    <p class="ml-1" style="line-height: 30px; color: rgb(86, 79, 202); letter-spacing: 0.5; font-size: 14px; font-family:'Muli', sans-serif;">Terms of use</p>        
+                                </div>
+                            </div>                                                
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </body>
+</html>

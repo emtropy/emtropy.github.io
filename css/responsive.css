@@ -1,0 +1,133 @@
+html, body {
+    height: 100%;
+}
+body {
+  padding-top: 87px; /*50px for the height of the navbar + 37px for the offset*/
+}
+
+.container {
+    width: 1500px;
+}
+.top-logo {
+    width: 30%;
+    float: left;
+    margin-left: 10%;
+}
+.wrap {
+    margin-top: 20px;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .wrap-blue {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(86, 79, 202);
+    border: none;
+    border-radius: 5px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    margin-right: 90px;
+    padding: 40px;
+  }
+  
+  .button {
+    width: 175px;
+    height: 40px;
+    padding: 8px;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    background-color: rgb(141, 233, 196);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 10px 18px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    }
+  
+  .button:hover {
+    background-color: rgb(141, 233, 196);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    transform: translateY(-5px);
+  }
+  
+  .topnav {
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    font-size: 14px;
+    border-bottom: 2px solid transparent;
+  }
+  .topnav a:hover,
+  .topnav a.active,
+  .topnav a.current {
+    color: #000;
+    font-weight: bold;
+    border-bottom: 2px solid rgb(75, 196, 143);
+  }
+
+
+.desc-section {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.desc-section-head {
+  max-width: 900px;
+  margin-left: auto;
+}
+
+.body{
+  padding-top:60px;
+}
+/* fix padding under menu after resize */
+@media screen and (max-width: 767px) {
+  body { padding-top: 60px; }
+}
+@media screen and (min-width:768px) and (max-width: 991px) {
+  body { padding-top: 110px; }
+}
+@media screen and (min-width: 992px) {
+  body { padding-top: 60px; }
+}
+
+.input-custom {
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.button-custom {
+  width: 100%;
+  padding: 10px;
+  font-family: 'Lato', sans-serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  background-color: rgb(86, 79, 202);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 10px 18px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  }
+
+.button-custom:hover {
+  background-color: rgb(72, 62, 255);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  transform: translateY(-5px);
+}
+  
+  
