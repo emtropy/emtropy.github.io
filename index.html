@@ -22,70 +22,28 @@
         <link href="library/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://www.gstatic.com/firebasejs/4.7.0/firebase.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script src="./library/jquery.toast.min.js"></script>
+        <link rel="stylesheet" href="library/morphext.css">
+        <link rel="stylesheet" href="library/animate.css">
+
+        <script src="library/morphext.min.js"></script>
+
+        <script src="library/jquery.toast.min.js"></script>
         <link href="library/jquery.toast.min.css" rel="stylesheet"/>
 
         <script>
-            var TxtRotate = function(el, toRotate, period) {
-                this.toRotate = toRotate;
-                this.el = el;
-                this.loopNum = 0;
-                this.period = parseInt(period, 10) || 1000;
-                this.txt = '';
-                this.tick();
-
-                this.isDeleting = false;
-            };
-
-            TxtRotate.prototype.tick = function() {
-                var i = this.loopNum % this.toRotate.length;
-                var fullTxt = this.toRotate[i];
-
-                if (this.isDeleting) {
-                    this.txt = fullTxt.substring(0, this.txt.length - 1);
-                } else {
-                    this.txt = fullTxt.substring(0, this.txt.length + 1);
-                }
-
-                this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
-
-                var that = this;
-                var delta = 300 - Math.random() * 100;
-                
-                if (this.isDeleting) { delta /= 2; }
-
-                if (!this.isDeleting && this.txt === fullTxt) {
-                    delta /= 2;
-                    // delta = this.period;
-                    this.isDeleting = true;
-                } else if (this.isDeleting && this.txt === '') {
-                    this.isDeleting = false;
-                    this.loopNum++;
-                    // delta = 500;
-                }
-
-                setTimeout(function() {
-                        that.tick();
-                    }, delta);
-                };
-
-                window.onload = function() {
-                    var elements = document.getElementsByClassName('txt-rotate');
-                    for (var i=0; i<elements.length; i++) {
-                        var toRotate = elements[i].getAttribute('data-rotate');
-                        var period = elements[i].getAttribute('data-period');
-                        if (toRotate) {
-                            new TxtRotate(elements[i], JSON.parse(toRotate), period);
-                        }
-                    }
-                // INJECT CSS
-                    var css = document.createElement("style");
-                    css.type = "text/css";
-                    css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid rgb(72,62,255); }";
-                    document.body.appendChild(css);
-                };
 
             $(document).ready(function() {
+                $("#js-rotate").Morphext({
+                    // The [in] animation type. Refer to Animate.css for a list of available animations.
+                    animation: "flipInX",
+                    // An array of phrases to rotate are created based on this separator. Change it if you wish to separate the phrases differently (e.g. So Simple | Very Doge | Much Wow | Such Cool).
+                    separator: ",",
+                    // The delay between the changing of each phrase in milliseconds.
+                    speed: 1500,
+                    complete: function () {
+                        // Called after the entrance animation is executed.
+                    }
+                });
                 $('a[href*=#]').bind('click', function(e) {
                     var target = $(this).attr("href"); // Set the target as variable
                     // perform animated scrolling by getting top-position of target-element and set it as scroll target
@@ -184,7 +142,7 @@
                     <div class="col-md-6 col-lg-6 col-sm-4">                
                         <a style="font-family:'Lato', sans-serif; letter-spacing: 0.91; font-size: 45px; line-height: 65px; font-weight: 400; color: rgb(0,0,0);">
                             Instrumenting a <br>
-                            <span>Culture of  </span><span class="txt-rotate word" data-period="1000" data-rotate='[ " feedback", " learning", " leadership", " trust"]'></span>                       
+                            <span>Culture of  </span><span class="word" id="js-rotate">feedback, learning, leadership, trust</span>                       
                         </a>
                         <p class="mt-5" style="line-height: 35px; letter-spacing: 0.5; font-size: 18px; font-family:'Muli', sans-serif;">Winning cultures happen through small actions, habits, and choices. We help you unlock organizational potential with small changes. </p>
                         <div class="wrap1 mt-5">
