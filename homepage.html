@@ -26,6 +26,65 @@
         <link href="library/jquery.toast.min.css" rel="stylesheet"/>
 
         <script>
+            var TxtRotate = function(el, toRotate, period) {
+                this.toRotate = toRotate;
+                this.el = el;
+                this.loopNum = 0;
+                this.period = parseInt(period, 10) || 1000;
+                this.txt = '';
+                this.tick();
+
+                this.isDeleting = false;
+            };
+
+            TxtRotate.prototype.tick = function() {
+                var i = this.loopNum % this.toRotate.length;
+                var fullTxt = this.toRotate[i];
+
+                if (this.isDeleting) {
+                    this.txt = fullTxt.substring(0, this.txt.length - 1);
+                } else {
+                    this.txt = fullTxt.substring(0, this.txt.length + 1);
+                }
+
+                this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+                var that = this;
+                var delta = 300 - Math.random() * 100;
+                
+                if (this.isDeleting) { delta /= 2; }
+
+                if (!this.isDeleting && this.txt === fullTxt) {
+                    delta /= 2;
+                    // delta = this.period;
+                    this.isDeleting = true;
+                } else if (this.isDeleting && this.txt === '') {
+                    this.isDeleting = false;
+                    this.loopNum++;
+                    // delta = 500;
+                }
+
+                setTimeout(function() {
+                        that.tick();
+                    }, delta);
+                };
+
+                window.onload = function() {
+                    var elements = document.getElementsByClassName('txt-rotate');
+                    for (var i=0; i<elements.length; i++) {
+                        var toRotate = elements[i].getAttribute('data-rotate');
+                        var period = elements[i].getAttribute('data-period');
+                        if (toRotate) {
+                            new TxtRotate(elements[i], JSON.parse(toRotate), period);
+                        }
+                    }
+                // INJECT CSS
+                    var css = document.createElement("style");
+                    css.type = "text/css";
+                    css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid rgb(72,62,255); }";
+                    document.body.appendChild(css);
+                };
+
             $(document).ready(function() {
                 $('a[href*=#]').bind('click', function(e) {
                     var target = $(this).attr("href"); // Set the target as variable
@@ -51,12 +110,6 @@
             }).scroll();
 
             var config = {
-                apiKey: "AIzaSyC-X2-Q-Lx2dWYh0LhzMhePz7Shy51G4sU",
-                authDomain: "emtropy-labs-website.firebaseapp.com",
-                databaseURL: "https://emtropy-labs-website.firebaseio.com",
-                projectId: "emtropy-labs-website",
-                storageBucket: "emtropy-labs-website.appspot.com",
-                messagingSenderId: "307259816607"
             };
             
             firebase.initializeApp(config);
@@ -89,10 +142,10 @@
         <!-- <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cabin" /> -->
     </head>
     <body style="position: relative;">
-        <div id="top-background" style="max-width: 100%; width: 100%; position: absolute; top: 0; left: 0; height: 100%">
+        <div id="top-background" style="max-width: 100%; width: 100%; position: absolute; top: 0; left: 0; height: 90%">
             <img style="max-width: 100%;  width: 100%; height: 100%; overflow: hidden;" src="./assets/topbackground.png"/>
         </div>
-        <div style="position: absolute; max-width: 100%; top: 230%; left: 0; height: 70%">
+        <div style="position: absolute; max-width: 100%; top: 210%; left: 0; height: 70%">
             <img style="max-width: 100%; height: 130%;  overflow: hidden;" src="./assets/pagebackground1.png"/>
             <img style="max-width: 100%; height: 125%; overflow: hidden;" src="./assets/pagebackground2.png"/>
         </div>
@@ -123,20 +176,20 @@
             <div id="top" class="desc-section" style="z-index: 8; margin-top: 5%; width: 100%;">
                 <div class="row">
                     <div class="col-md-6 col-lg-6 col-sm-4">                
-                        <span style="font-family:'Lato', sans-serif; letter-spacing: 0.91; font-size: 45px; line-height: 60px; font-weight: 800; color: rgb(0,0,0);">Drive big results</span>
-                        <span style="font-family:'Lato', sans-serif; letter-spacing: 0.91; font-size: 45px; line-height: 60px; font-weight: 800; color: rgb(0,0,0);">through small</span>                    
-                        <span style="font-family:'Lato', sans-serif; letter-spacing: 0.91; font-size: 45px; line-height: 60px; font-weight: 800; color: rgb(0,0,0);">changes.</span>                    
-                        <p class="mt-4" style="line-height: 35px; letter-spacing: 0.5; font-size: 18px; font-family:'Muli', sans-serif;">Winning cultures happen through small actions, habits, and choices. We help you unlock organizational potential with small changes.</p>
-                        <div class="wrap">
-                            <div class="form-group" style="width: 350px; height: 35px; margin-right: 10px">
-                                <input type="email" class="form-control" id="email" style="font-family: 'Muli', sans-serif; font-size: 14px" placeholder="Enter your work email here">
+                        <a style="font-family:'Lato', sans-serif; letter-spacing: 0.91; font-size: 40px; line-height: 60px; font-weight: 800; color: rgb(0,0,0);">
+                            Implementing a <br>
+                            <span>Culture of  </span><span class="txt-rotate word" data-period="1000" data-rotate='[ " feedback", " learning", " leadership", " trust"]'></span>                       
+                        </a>    
+                        <div class="wrap1 mt-5">
+                            <div class="form-group mr-4">
+                                <input type="email" class="form-control pr-5" id="email" style="font-family: 'Muli', sans-serif; font-size: 14px;" placeholder="Enter your work email here">
                             </div>
-                            <!-- <textarea class="form-control"  placeholder="Email"></textarea> -->
                             <button class="button">GET ACCESS</button>        
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-6 col-sm-4">                
-                        <img src="./assets/heroImage.png" style="width: 90%"/>
+                    <div class="col-lg-2"></div>
+                    <div class="col-md-6 col-lg-4 col-sm-4">                
+                        <img src="./assets/heroImage.png" style="width: 100%"/>
                     </div>
 
                 </div>
