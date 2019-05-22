@@ -57,7 +57,7 @@ input::placeholder {
   .button:hover {
     background-color: rgb(141, 233, 196);
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    color: #fff;
+    color: rgb(0, 0, 0);
     transform: translateY(-5px);
   }
   
@@ -91,7 +91,7 @@ input::placeholder {
 }
 
 .desc-section-head {
-  max-width: 900px;
+  max-width: 950px;
   margin-left: auto;
 }
 
