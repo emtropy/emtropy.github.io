@@ -44,8 +44,8 @@ input::placeholder {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 800;
-    color: rgb(0, 0, 0);
-    background-color: rgb(141, 233, 196);
+    color: rgb(71, 71, 71);
+    background-color: rgb(131, 225, 188);
     border: none;
     border-radius: 5px;
     box-shadow: 0px 10px 18px rgba(0, 0, 0, 0.1);
@@ -55,7 +55,7 @@ input::placeholder {
     }
   
   .button:hover {
-    background-color: rgb(141, 233, 196);
+    background-color: rgb(164, 238, 209);
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     color: rgb(0, 0, 0);
     transform: translateY(-5px);
@@ -147,4 +147,8 @@ input::placeholder {
   font-weight: bold; 
   color: black;
   border: none;
+}
+
+.line {
+  border-bottom: 1px solid rgb(237, 236, 252);
 }

@@ -56,13 +56,22 @@
             });
 
             $(window).scroll(function() {
+                console.log('scrolling');
+
                 var scrollDistance = $(window).scrollTop();
+                if(scrollDistance <= 10)
+                    $('#header').removeClass('line');
+                else 
+                    $('#header').addClass('line');
+
+
 
                 // Assign active class to nav links while scolling
                 $('.desc-section').each(function(i) {
                         if ($(this).position().top <= scrollDistance) {
                                 $('.top-nav a:active').removeClass('active');
                                 $('.top-nav a').eq(i).addClass('active');
+                                
                         }
                 });
             }).scroll();
@@ -109,10 +118,10 @@
         <div id="top-background" style="max-width: 105%; width: 100%; position: absolute; top: 0; left: 0; height: 90%">
             <img style="max-width: 100%;  width: 100%; height: 120%; overflow: hidden;" src="./assets/topbackground.png"/>
         </div>
-        <div class="container-fluid pb-0" style="position: fixed; background-color: white; top: 0; left: 0; z-index: 8;">
-            <nav class="navbar bg-white navbar-expand-md">
+        <div id="header" class="container-fluid pb-0" style="position: fixed; background-color: white; top: 0; left: 0; z-index: 8;">
+            <nav class="navbar bg-white navbar-expand-md mt-3">
                 <div class="container-fluid desc-section-head">
-                    <a href="#" class="navbar-brand"><img src="./assets/logo.png"/> </a>
+                    <a href="#" class="navbar-brand"><img src="./assets/logo@2x.png" style="width: 130px"/> </a>
                     <nav class="collapse navbar-collapse" id="navbarTop">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item topnav">
@@ -182,7 +191,7 @@
                 <h1 style="text-align:center;  font-family:'Lato', sans-serif; align-self: center; font-size: 38px; letter-spacing: 0.45; line-height: 60px; font-weight: 800;">Machine Learning</h1>
                 <p class="mb-4" style="align-self: center; text-align: center; line-height: 30px; letter-spacing: 0.5; font-size: 16px; font-family:'Muli', sans-serif;">We use a smart machine learning engine to deliver skill <br> analysis and personalized microlearning programs.</p>
                 <div class="mt-5" style="text-align: center;">
-                    <img style="height: 440px; width: 950px" src="./assets/machinelearninggraphic.png"/>
+                    <img style="height: 440px; width: 950px" src="./assets/machinelearninggraphic2.png"/>
                 </div>
             </div>            
             <div  class="mt-4"  style="padding-top: 15%; background-image: url('./assets/pagebackground1.png'), url('./assets/pagebackground2.png'); background-position: top, bottom; height: 800px; width: 101%; background-repeat: no-repeat, no-repeat; background-size: contain">
@@ -268,7 +277,7 @@
                     <div class="col-lg-1">
                     </div>
                     <div class="col-md-6 col-lg-6">
-                        <img src="./assets/logo.png"/>
+                        <img src="./assets/logo@2x.png" style="width: 144px"/>
                         <p class="mt-3" style="line-height: 30px; letter-spacing: 0.51; font-size: 14px; color: black; font-family:'Muli', sans-serif;">Emtropy labs helps organisations become better by using machine learning and personalised micro learning programs</p>
                         <h3 class="mt-2" style="font-family:'Cabin', sans-serif; font-size: 18px; line-height: 24px; font-weight: 700; color: rgb(0,0,0);">Address</h3>        
                         <div class="row">
