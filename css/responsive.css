@@ -36,9 +36,10 @@ input::placeholder {
   }
   
   .button {
-    width: 145px;
+    width: 200px;
     height: 50px;
-    padding: 6px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     font-family: 'Lato', sans-serif;
     font-size: 13px;
     text-transform: uppercase;
@@ -164,4 +165,8 @@ input::placeholder {
 
 .line {
   border-bottom: 1px solid rgb(237, 236, 252);
+}
+
+input[type="image"] { 
+  outline: none;
 }
