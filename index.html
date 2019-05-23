@@ -105,15 +105,11 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cabin" /> -->
     </head>
-    <body style="position: relative;">
-        <div id="top-background" style="max-width: 100%; width: 100%; position: absolute; top: 0; left: 0; height: 90%">
+    <body style="position: relative;" class="pb-0">
+        <div id="top-background" style="max-width: 105%; width: 100%; position: absolute; top: 0; left: 0; height: 90%">
             <img style="max-width: 100%;  width: 100%; height: 120%; overflow: hidden;" src="./assets/topbackground.png"/>
         </div>
-        <!-- <div style="position: absolute; max-width: 100%; top: 300%; left: 0; height: 70%">
-            <img style="max-width: 100%; height: 130%;  overflow: hidden;" src="./assets/pagebackground1.png"/>
-            <img style="max-width: 100%; height: 125%; overflow: hidden;" src="./assets/pagebackground2.png"/>
-        </div> -->
-        <div class="container-fluid" style="position: fixed; background-color: white; top: 0; left: 0; margin-bottom: 8%; z-index: 8;">
+        <div class="container-fluid pb-0" style="position: fixed; background-color: white; top: 0; left: 0; z-index: 8;">
             <nav class="navbar bg-white navbar-expand-md">
                 <div class="container-fluid desc-section-head">
                     <a href="#" class="navbar-brand"><img src="./assets/logo.png"/> </a>
@@ -137,7 +133,7 @@
             </nav>            
         </div>
         <div class="container-fluid pb-0" style="z-index: 8;">
-            <div id="top" class="desc-section" style="z-index: 8; margin-top: 5%; width: 100%;">
+            <div id="top" class="desc-section" style="z-index: 8; margin-top: 8%; width: 100%;">
                 <div class="row">
                     <div class="col-md-6 col-lg-6 col-sm-4">                
                         <a style="font-family:'Lato', sans-serif; letter-spacing: 0.91; font-size: 45px; line-height: 65px; font-weight: 400; color: rgb(0,0,0);">
@@ -147,40 +143,38 @@
                         <p class="mt-5" style="line-height: 35px; letter-spacing: 0.5; font-size: 18px; font-family:'Muli', sans-serif;">Winning cultures happen through small actions, habits, and choices. We help you unlock organizational potential with small changes. </p>
                         <div class="wrap1 mt-5">
                             <div class="form-group mr-4">
-                                <input type="email" class="form-control pr-5" id="email" style="font-family: 'Muli', sans-serif; letter-spacing: 0.29px; line-height: 0.29; font-size: 16px;" placeholder="Work Email">
+                                <input type="email" class="form-control pr-5" id="email" style="height: 50px; font-family: 'Muli', sans-serif; letter-spacing: 0.29px; line-height: 0.29; font-size: 16px;" placeholder="Work Email">
                             </div>
                             <button class="button">GET ACCESS</button>        
                         </div>
                     </div>
-                    <div class="col-lg-1"></div> 
-                    <div class="col-md-6 col-lg-5 col-sm-4">                
-                        <img src="./assets/HeroImage1.png" style="width: 110%"/>
+                    <div class="col-md-6 col-lg-5 col-sm-5">                
+                        <img src="./assets/HeroImage1.png" style="width: 109%"/>
                     </div>
                 </div>
             </div>
-            <div id="1" class="desc-section" style="width: 100%; margin-top: 25%">
+            <div id="1" class="desc-section" style="width: 100%; margin-top: 15%">
                 <h1 style="text-align:center;  font-family:'Lato', sans-serif; align-self: center; font-size: 38px; letter-spacing: 0.45; line-height: 60px; font-weight: 800;">How it works</h1>
-                <div class="row mt-5">
-                    <div class="col-lg-1"></div>
+                <div class="row" style="margin-top: 8%">
                     <div class="col-md-6 col-lg-3 pt-3">
-                        <img src="./assets/360Feedbackicon.png"/>
+                        <img src="./assets/360Feedbackicon.png" style="width:55%"/>
 
                         <h3 class="mt-5 mb-4" style="font-family:'Lato', sans-serif; font-size: 18px; line-height: 25px; letter-spacing: 0.64; font-weight: 800; color: rgb(0,0,0);">360 Feedback</h3>
-                        <p style="line-height: 30px; letter-spacing: 0.5; font-size: 16px; font-family:'Muli', sans-serif;">Share and request feedback from your managers, peers and direct reports. </p>
+                        <p style="line-height: 30px; letter-spacing: 0.5; font-size: 16px; font-weight: 500; font-family:'Muli', sans-serif;">Share and request feedback from your managers, peers and direct reports. </p>
                     </div>
                     <div class="col-lg-1"></div>
                     <div class="col-md-6 col-lg-3">
-                        <img src="./assets/skillAnalysisIcon.png" >
+                        <img src="./assets/skillAnalysisIcon.png" style="width:55%">
 
                         <h3 class="mt-5 mb-4" style="font-family:'Lato', sans-serif; font-size: 18px; line-height: 25px; letter-spacing: 0.64; font-weight: 800; color: rgb(0,0,0);">Skill Analysis</h3>
-                        <p style="line-height: 30px; letter-spacing: 0.5; font-size: 16px; font-family:'Muli', sans-serif;">Our patented machine learning engine identifies and prioritizes.</p>
+                        <p style="line-height: 30px; letter-spacing: 0.5; font-size: 16px; font-weight: 500; font-family:'Muli', sans-serif;">Our patented machine learning engine identifies and prioritizes.</p>
                     </div>
                     <div class="col-lg-1"></div>
-                    <div class="col-md-6 col-lg-3 pt-3">
-                        <img src="./assets/developmentIcon.png"/>
+                    <div class="col-md-6 col-lg-3 pt-2">
+                        <img class="mb-3" src="./assets/developmentIcon.png"  style="width:45%"/>
 
-                        <h3  class="mt-5 mb-4" style="font-family:'Lato', sans-serif; font-size: 18px; line-height: 25px; letter-spacing: 0.64;font-weight: 800; color: rgb(0,0,0);">Development</h3>
-                        <p style="line-height: 30px; letter-spacing: 0.5; font-size: 16px; font-family:'Muli', sans-serif;">Personalized microlearning programs closes skill gaps and fosters employee engegement.</p>
+                        <h3  class="mt-4 mb-4" style="font-family:'Lato', sans-serif; font-size: 18px; line-height: 25px; letter-spacing: 0.64;font-weight: 800; color: rgb(0,0,0);">Development</h3>
+                        <p style="line-height: 30px; color: black; letter-spacing: 0.5; font-size: 16px; font-weight: 500; font-family:'Muli', sans-serif;">Personalized microlearning programs closes skill gaps and fosters employee engegement.</p>
                     </div>
                 </div>
             </div>
@@ -188,7 +182,7 @@
                 <h1 style="text-align:center;  font-family:'Lato', sans-serif; align-self: center; font-size: 38px; letter-spacing: 0.45; line-height: 60px; font-weight: 800;">Machine Learning</h1>
                 <p class="mb-4" style="align-self: center; text-align: center; line-height: 30px; letter-spacing: 0.5; font-size: 16px; font-family:'Muli', sans-serif;">We use a smart machine learning engine to deliver skill <br> analysis and personalized microlearning programs.</p>
                 <div class="mt-5" style="text-align: center;">
-                    <img style="height: 80%; width: 80%" src="./assets/machinelearninggraphic.png"/>
+                    <img style="height: 440px; width: 950px" src="./assets/machinelearninggraphic.png"/>
                 </div>
             </div>            
             <div  class="mt-4"  style="padding-top: 15%; background-image: url('./assets/pagebackground1.png'), url('./assets/pagebackground2.png'); background-position: top, bottom; height: 800px; width: 101%; background-repeat: no-repeat, no-repeat; background-size: contain">
@@ -247,7 +241,7 @@
                             </div>
                             <div class="col-md-6 col-lg-4">
                                 <div style="display: flex">
-                                    <img src="./assets/kudosIcons@2x.png" style="align-self: flex-start; height: 40px; width:40px;"/>
+                                    <img src="./assets/kudosIcons.png" style="align-self: flex-start; height: 40px; width:40px;"/>
                                     <div class="ml-3">
                                         <h3 style="font-family:'Lato', sans-serif; font-size: 18px; letter-spacing: 0.64px; line-height: 24px; font-weight: 800; color: rgb(0,0,0);">Kudos</h3>        
                                         <p style="margin-top: 7px; line-height: 25px; letter-spacing: 0.66px; font-size: 14px; font-family:'Muli', sans-serif;">Develop a culture of positive feedback and rewards for employees.</p>
@@ -258,7 +252,7 @@
                     </div>
                 </div>     
             </div>        
-            <div id="4" class="desc-section" style="margin-top: 10%; width: 100%;">
+            <div id="4" class="desc-section pb-0" style="margin-top: 10%; width: 100%;">
                 <div class="row">
                     <div class="col-md-6 col-lg-5">
                         <div class="shadow p-5 mb-5 bg-white rounded">

@@ -37,13 +37,13 @@ input::placeholder {
   
   .button {
     width: 145px;
-    height: 40px;
+    height: 50px;
     padding: 6px;
     font-family: 'Lato', sans-serif;
     font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-weight: bold;
+    font-weight: 800;
     color: rgb(0, 0, 0);
     background-color: rgb(141, 233, 196);
     border: none;
@@ -67,13 +67,12 @@ input::placeholder {
   
   /* Style the links inside the navigation bar */
   .topnav a {
-    transition: all .2s linear;
+    transition: .2s ease-out;
     font-size: 14px;
   }
   .topnav a:hover {
     color: #000;
     font-weight: bold;
-    transform: scale(1.1);
     border-bottom: 2px solid rgb(75, 196, 143);
   }
   .topnav a.active,
@@ -93,6 +92,7 @@ input::placeholder {
 .desc-section-head {
   max-width: 950px;
   margin-left: auto;
+  margin-right: auto;
 }
 
 .body{
