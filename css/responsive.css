@@ -60,30 +60,43 @@ input::placeholder {
     color: rgb(0, 0, 0);
     transform: translateY(-5px);
   }
+
+
   
   .topnav {
     overflow: hidden;
+    display: inline-block;
+    font-size: 0;
   }
   
   /* Style the links inside the navigation bar */
   .topnav a {
-    transition: .2s ease-out;
-    font-size: 14px;
+    transition: border-bottom .6s;
+    display:inline-block;
+    letter-spacing: .9em;
+    border-bottom: 1px solid rgb(255, 255, 255);
   }
+
   .topnav a:hover {
+    text-shadow: 0 0 .65px #333, 0 0 .65px #333;
     color: #000;
-    font-weight: bold;
-    border-bottom: 2px solid rgb(75, 196, 143);
+    border-bottom: 1px solid rgb(75, 196, 143);
   }
   .topnav a.active,
   .topnav a.current {
+    text-shadow: 0 0 .65px #333, 0 0 .65px #333;
     color: #000;
-    font-weight: bold;
-    border-bottom: 2px solid rgb(75, 196, 143);
+    border-bottom: 1px solid rgb(75, 196, 143);
   }
 
 
 .desc-section {
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.desc-section-copy {
   max-width: 920px;
   margin-left: auto;
   margin-right: auto;
