@@ -181,14 +181,6 @@ input[type="image"] {
 }
 
 @media only screen and (max-width: 768) {
-  .div-head {
-    font-size: 1em; 
-    line-height: 65px; 
-    font-weight: 400;   
-  }
-}
-
-@media only screen and (max-width: 768) {
 
   [class*="col-"] {
     width: 100%;
