@@ -19,9 +19,9 @@
             </script>
 
            <!-- Bootstrap core CSS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <link href="library/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://www.gstatic.com/firebasejs/4.7.0/firebase.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <link rel="stylesheet" href="library/morphext.css">
         <link rel="stylesheet" href="library/animate.css">
 
@@ -145,13 +145,21 @@
         <div id="1" style="max-width: 105%; width: 100%; position: absolute; top: 0; left: 0; height: 90%">
             <img style="max-width: 100%;  width: 100%; height: 120%; overflow: hidden;" src="./assets/topbackground.png"/>
         </div>
+        
         <div id="header" class="container-fluid pb-0" style="position: fixed; background-color: white; top: 0; left: 0; z-index: 8;">
-            <nav class="navbar bg-white navbar-expand-md" style="height: 55px">
+            <nav class="navbar navbar-inverse bg-white navbar-expand-md" style="height: 55px">
                 <div class="container-fluid desc-section-head pt-0">
-                    <input id="logoTop" type="image" class="navbar-brand" src="./assets/logo@2x.png" style="width: 130px">
+                    <div class="navbar-header">
+                        <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarTop">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>                                              
+                        </button> -->
+                        <input id="logoTop" type="image" class="navbar-brand" src="./assets/logo@2x.png" style="width: 130px">                                    
+                    </div>
                     <!-- <img  role="button"  src="./assets/logo@2x.png" style="width: 130px"/> -->
-                    <nav class="collapse navbar-collapse" id="navbarTop">
-                        <ul class="navbar-nav mt-2 ml-auto">
+                    <div class="collapse navbar-collapse" id="navbarTop">
+                        <ul class="nav navbar-nav mt-2 ml-auto">
                             <li class="nav-item topnav">
                                 <a class="nav-link pb-3" href="#1"><span style="font-family:'Lato', sans-serif; color: rgb(53, 53, 53); font-size: 14px;">Home</span></a>
                             </li>
@@ -175,10 +183,10 @@
         <div class="container-fluid pb-0" style="z-index: 8;">
             <div class="desc-section" style="z-index: 8; margin-top: 8%; width: 100%;">
                 <div class="row">
-                    <div class="col-md-6 col-lg-6 col-sm-4">                
-                        <a style="font-family:'Lato', sans-serif; letter-spacing: 0.91; font-size: 45px; line-height: 65px; font-weight: 400; color: rgb(0,0,0);">
+                    <div class="col-md-4 col-lg-6 col-sm-4">                
+                        <a class="div-head">
                             Instrumenting a <br>
-                            <span>Culture of  </span><span class="word" id="js-rotate">feedback, learning, leadership, trust</span>                       
+                            <span>Culture of  </span><span class="word" id="js-rotate">feedback, learning, leadership, trust   </span>                       
                         </a>
                         <p class="mt-5" style="line-height: 35px; letter-spacing: 0.5; font-size: 18px; font-family:'Muli', sans-serif;">Winning cultures happen through small actions, habits, and choices. We help you unlock organizational potential with small changes. </p>
                         <div class="wrap1 mt-5">
@@ -186,7 +194,7 @@
                             <button class="button">GET ACCESS</button>        
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-5 col-sm-5">                
+                    <div class="col-md-4 col-lg-5 col-sm-4">                
                         <img src="./assets/HeroImage1.png" style="width: 109%"/>
                     </div>
                 </div>
@@ -220,7 +228,7 @@
                 <h1 style="text-align:center;  font-family:'Lato', sans-serif; align-self: center; font-size: 38px; letter-spacing: 0.45; line-height: 60px; font-weight: 800;">Machine Learning</h1>
                 <p class="mb-4" style="align-self: center; text-align: center; line-height: 30px; letter-spacing: 0.5; font-size: 16px; font-family:'Muli', sans-serif;">We use a smart machine learning engine to deliver skill <br> analysis and personalized microlearning programs.</p>
                 <div class="mt-5" style="text-align: center;">
-                    <img style="height: 440px; width: 950px" src="./assets/machinelearninggraphic2.png"/>
+                    <img style="width: 100%" src="./assets/machinelearninggraphic2.png"/>
                 </div>
             </div>            
             <div id="4" class="mt-4"  style="padding-top: 15%; background-image: url('./assets/pagebackground1.png'), url('./assets/pagebackground2.png'); background-position: top, bottom; height: 800px; width: 101%; background-repeat: no-repeat, no-repeat; background-size: contain">

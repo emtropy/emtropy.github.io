@@ -144,7 +144,7 @@ input::placeholder {
   transition: all 0.3s ease 0s;
   cursor: pointer;
   outline: none;
-  }
+}
 
 .button-custom:hover {
   background-color: rgb(72, 62, 255);
@@ -161,12 +161,60 @@ input::placeholder {
   font-weight: bold; 
   color: black;
   border: none;
+  white-space: pre;
 }
-
 .line {
   border-bottom: 1px solid rgb(237, 236, 252);
 }
 
 input[type="image"] { 
   outline: none;
+}
+
+.div-head {
+  font-family:'Lato', sans-serif;
+  letter-spacing: 0.91; 
+  font-size: 45px; 
+  line-height: 65px; 
+  font-weight: 400; 
+  color: rgb(0,0,0);
+}
+
+@media only screen and (max-width: 768) {
+  .div-head {
+    font-size: 1em; 
+    line-height: 65px; 
+    font-weight: 400;   
+  }
+}
+
+@media only screen and (max-width: 768) {
+
+  [class*="col-"] {
+    width: 100%;
+  }
+}
+
+.div-content {
+  line-height: 35px; 
+  letter-spacing: 0.5; 
+  font-size: 18px; 
+  font-family:'Muli', sans-serif
+}
+
+.div-features-content {
+  line-height: 30px; 
+  letter-spacing: 0.5; 
+  font-size: 16px; 
+  font-weight: 500; 
+  font-family:'Muli', sans-serif;
+}
+
+.div-features-subhead {
+  font-family:'Lato', sans-serif; 
+  font-size: 18px; 
+  line-height: 25px; 
+  letter-spacing: 0.64; 
+  font-weight: 800; 
+  color: rgb(0,0,0);
 }
