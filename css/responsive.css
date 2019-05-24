@@ -154,6 +154,7 @@ input::placeholder {
 }
 
 .word {
+  display: inline-block;
   font-family:'Lato', sans-serif; 
   letter-spacing: 0.91; 
   font-size: 45px; 
@@ -163,6 +164,22 @@ input::placeholder {
   border: none;
   white-space: pre;
 }
+
+@media only screen and (max-width: 768) {
+
+  .word {
+    display: block;
+    font-family:'Lato', sans-serif; 
+    letter-spacing: 0.91; 
+    font-size: 45px; 
+    line-height: 65px; 
+    font-weight: bold; 
+    color: black;
+    border: none;
+    white-space: pre;
+  }
+}
+
 .line {
   border-bottom: 1px solid rgb(237, 236, 252);
 }
