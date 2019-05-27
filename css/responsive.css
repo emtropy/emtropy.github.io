@@ -282,12 +282,9 @@ input[type="image"] {
 /* The navigation links inside the overlay */
 .overlay a { 
   display: block;
-  text-shadow: 0 0 0 black, 0 0 0 rgb(75, 196, 143);
 }
 
 .overlay-content a {
-  color: #333;
-  text-shadow: 0 0 0 #333, 0 0 0 #333;
 }
 /* When you mouse over the navigation links, change their color */
 .overlay-content a:hover,
