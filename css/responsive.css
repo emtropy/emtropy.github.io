@@ -241,31 +241,67 @@ input[type="image"] {
 
 .mob-topnav {
   overflow: hidden;
-  background-color: #fff;
+  background-color:white;
   position: relative;
 }
 
-.mob-topnav #myLinks {
-  display: none;
-}
-
-.mob-topnav a {
-  
-  color: black;
+.icon {
+  color: rgb(91,85,203);
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
-  display: block;
-}
-
-.mob-topnav a.icon {
+  font-size: 22px;
   display: block;
   position: absolute;
   right: 0;
   top: 0;
 }
 
-/* Add a grey background color on mouse-over */
-.mob-topnav a:hover {
-  background-color: #fff;
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */    
+  height: 100%;
+  width: 0;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: white; /* Black fallback color */
+  background-color: white; /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+  position: relative;
+  top: 25%; /* 25% from the top */
+  width: 100%; /* 100% width */
+  text-align: center; /* Centered text/links */
+  margin-top: 30px;
+}
+
+/* The navigation links inside the overlay */
+.overlay a { 
+  display: block;
+  text-shadow: 0 0 0 black, 0 0 0 rgb(75, 196, 143);
+}
+
+.overlay-content a {
+  color: #333;
+  text-shadow: 0 0 0 #333, 0 0 0 #333;
+}
+/* When you mouse over the navigation links, change their color */
+.overlay-content a:hover,
+.overlay-content a.active,
+.overlay-content a.current {
+  text-shadow: 0 0 .65px black, 0 0 .65px rgb(75, 196, 143);
+  color: #000;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+  position: absolute;
+  color: rgb(91,85,203);
+  top: 20px;
+  right: 45px;
+  font-size: 50px;
 }

@@ -31,13 +31,13 @@
         <link href="library/jquery.toast.min.css" rel="stylesheet"/>
 
         <script>
-            function myFunction() {
-                var x = document.getElementById("myLinks");
-                if (x.style.display === "block") {
-                    x.style.display = "none";
-                } else {
-                    x.style.display = "block";
-                }
+            function openNav() {
+                document.getElementById("myNav").style.width = "100%";
+            }
+
+            /* Close when someone clicks on the "x" symbol inside the overlay */
+            function closeNav() {
+                document.getElementById("myNav").style.width = "0%";
             }
 
             $(document).ready(function() {
@@ -73,6 +73,8 @@
                                 scrollTop: $(target).offset().top - 120
                         }, 600);
                     }
+
+                    closeNav();
                 });
 
                 $("#logoTop").on('click', function(e) {
@@ -150,18 +152,25 @@
         <!-- <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cabin" /> -->
     </head>
     <body style="position: relative;" class="pb-0">
-        <div id="header" class="container-fluid pb-0" style="position: fixed; background-color: white; top: 0; left: 0; z-index: 8;">
+        <div id="header" class="container-fluid pb-0 pt-3" style="position: fixed; background-color: white; top: 0; left: 0; z-index: 8;">
             <div class="mob-topnav">
                 <input id="logoTop" type="image" class="m-2 navbar-brand" src="./assets/logo@2x.png" style="width: 130px">                                    
-                <div id="myLinks">
-                    <a class="nav-link pb-3" href="#1"><span style="font-family:'Lato', sans-serif; color: rgb(53, 53, 53); font-size: 14px;">Home</span></a>
-                    <a class="nav-link pb-3" href="#2"><span style="font-family:'Lato', sans-serif; color: rgb(53, 53, 53); font-size: 14px;">How it works</span></a>
-                    <a class="nav-link pb-3" href="#3"><span style="font-family:'Lato', sans-serif; color: rgb(53, 53, 53); font-size: 14px;">Machine Learning</span></a>
-                    <a class="nav-link pb-3" href="#4"><span style="font-family:'Lato', sans-serif; color: rgb(53, 53, 53); font-size: 14px;">Features</span></a>
-                    <a class="nav-link pb-3" href="#5"><span style="font-family:'Lato', sans-serif; color: rgb(53, 53, 53); font-size: 14px;">Contact Us</span></a>
+                <div id="myNav" class="overlay">
+                    <!-- Button to close the overlay navigation -->
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    
+                    <!-- Overlay content -->
+                    <div class="overlay-content">
+                        <a class="pb-3" href="#1"><span style="font-family:'Lato', sans-serif; color: rgb(53, 53, 53); font-size: 14px;">Home</span></a>
+                        <a class="pb-3" href="#2"><span style="font-family:'Lato', sans-serif; color: rgb(53, 53, 53); font-size: 14px;">How it works</span></a>
+                        <a class="pb-3" href="#3"><span style="font-family:'Lato', sans-serif; color: rgb(53, 53, 53); font-size: 14px;">Machine Learning</span></a>
+                        <a class="pb-3" href="#4"><span style="font-family:'Lato', sans-serif; color: rgb(53, 53, 53); font-size: 14px;">Features</span></a>
+                        <a class="pb-3" href="#5"><span style="font-family:'Lato', sans-serif; color: rgb(53, 53, 53); font-size: 14px;">Contact Us</span></a>
+                    </div>                    
                 </div>
+
                 <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <a href="javascript:void(0);" class="mr-2 icon" onclick="openNav()">
                 <i class="fa fa-bars"></i>
                 </a>
             </div>
@@ -210,7 +219,7 @@
                 </div>
                 <div id="3" class="desc-section p-2" style="margin-top: 15%; margin-bottom: 5%; width: 100%;">
                     <h1 style="text-align:center;  font-family:'Lato', sans-serif; align-self: center; font-size: 38px; letter-spacing: 0.45; line-height: 60px; font-weight: 800;">Machine Learning</h1>
-                    <p class="mb-4" style="align-self: center; text-align: center; line-height: 30px; letter-spacing: 0.5; font-size: 16px; font-family:'Muli', sans-serif;">We use a smart machine learning engine to deliver skill <br> analysis and personalized microlearning programs.</p>
+                    <p class="mb-4" style="align-self: center; text-align: center; line-height: 30px; letter-spacing: 0.5; font-size: 16px; font-family:'Muli', sans-serif;">We use a smart machine learning engine to deliver sentiment and behaviour analysis.</p>
                     <div>
                         <img style="text-align: center; width: 100%" src="./assets/group2.png"/>
                         <p class="ml-3" style="align-self: center; color: rgb(195, 195, 195); line-height: 30px; letter-spacing: 0.44; font-size: 12px; font-family:'Muli', sans-serif;">Organisation Sentiment analysis</p>
@@ -220,7 +229,7 @@
                         <p class="ml-3 mt-0" style="align-self: center; color: rgb(195, 195, 195); line-height: 30px; letter-spacing: 0.44; font-size: 12px; font-family:'Muli', sans-serif;">Individual behaviour analysis</p>
                     </div>
                 </div> 
-                <div id="4" class="mt-4"  style="padding-top: 15%; padding-bottom: 15%; background-image: url('./assets/pagebackground1.png'), url('./assets/pagebackground2.png'); background-position: top, bottom; height: 800px; width: 101%; background-repeat: no-repeat, no-repeat; background-size: contain">
+                <div id="4" class="mt-4"  style="padding-top: 15%; padding-bottom: 15%; background-image: url('./assets/pagebackground1.png'), url('./assets/pagebackground2.png'); background-position: top, bottom; height: 820px; width: 110%; background-repeat: no-repeat, no-repeat; background-size: contain">
                     <div  class="desc-section p-3" style="z-index: 8; width: 100%;">
                         <h1 style="text-align:center; z-index: 8; font-family:'Lato', sans-serif; align-self: center; font-size: 38px; letter-spacing: 0.45; line-height: 60px; font-weight: 800;">Features</h1>
                         <div class="row" style="margin-top: 10%">
@@ -294,18 +303,11 @@
                                 <button id="bottomSubmit" class="button-custom mt-4 mr-3" onclick="submitEmail();">GET ACCESS</button>
                             </div>
                         </div>
-                        <div class="col-lg-1">
-                        </div>
                         <div class="col-md-6 col-lg-6 mt-3">
                             <img src="./assets/logo@2x.png"  style="width: 130px"/>
                             <p class="mt-3" style="line-height: 30px; letter-spacing: 0.51; font-size: 14px; color: black; font-family:'Muli', sans-serif;">Emtropy labs helps organisations become better by using machine learning and personalised micro learning programs</p>
                             <h3 class="mt-4" style="font-family:'Cabin', sans-serif; font-size: 18px; line-height: 24px; font-weight: 700; color: rgb(0,0,0);">Address</h3>        
                             <div class="row">
-                                <div class="col-md-6 col-lg-5">
-                                    <p style="line-height: 30px; letter-spacing: 0.51; font-size: 14px; font-family:'Muli', sans-serif;">1B, RMZ nxt, 13 Main,
-                                        Graphite Junction,
-                                        Bangalore, 560066</p>
-                                </div>
                                 <div class="col-lg-1"></div>
                                 <div class="col-md-6 col-lg-4">
                                     <p style="line-height: 30px; letter-spacing: 0.5; font-size: 14px; font-family:'Muli', sans-serif;">867 Boylston St 5th Floor, Boston, MA 02116, USA</p>
@@ -323,16 +325,17 @@
                                 </div>
                             </div>
                             <div class="row">
-                                    <div class="container pl-3" style=" display: flex;">
-                                        <a href="" style="align-self: flex-start; line-height: 30px; color: rgb(86, 79, 202); letter-spacing: 0.1; font-size: 14px; font-family:'Muli', sans-serif;">Privacy</p>        
-                                        <a class="ml-5" href="" style="align-content: flex-end; line-height: 30px; color: rgb(86, 79, 202); letter-spacing: 0.1; font-size: 14px; font-family:'Muli', sans-serif;">Terms of use</p>        
-                                    </div>
+                                <div class="container pl-3" style=" display: flex;">
+                                    <a href="" style="align-self: flex-start; line-height: 30px; color: rgb(86, 79, 202); letter-spacing: 0.1; font-size: 14px; font-family:'Muli', sans-serif;">Privacy</p>        
+                                    <a class="ml-5" href="" style="align-content: flex-end; line-height: 30px; color: rgb(86, 79, 202); letter-spacing: 0.1; font-size: 14px; font-family:'Muli', sans-serif;">Terms of use</p>        
+                                </div>
                             </div>
                             <div class="row">                                
-                                <div class="container mb-3" style=" display: flex;">
+                                <div class="container mb-3" style="align-self: flex-start; align-items: flex-start; display: flex;">
                                     <a href="https://www.linkedin.com" target="_blank"><img style="align-self: flex-start; width: 40px; height: 40px" src="./assets/linkedin.png" srcset="./assets/linkedin.png 1x, ./assets/linkedin@2x.png 2x"/></a>
                                     <a href="https://www.twitter.com" target="_blank"><img class="ml-2" style="width: 40px; height: 40px" src="./assets/twitter.png" srcset="./assets/twitter.png 1x, ./assets/twitter@2x.png 2x"/></a>
                                     <a href="https://www.angelist.com" target="_blank"><img class="ml-2" style="width: 40px; height: 40px" src="./assets/angelist.png" srcset="./assets/angelist.png 1x, ./assets/angelist@2x.png 2x"/><a>        
+                                    <a href="https://www.angelist.com" target="_blank"><img class="ml-2" style="width: 40px; height: 40px" src="./assets/angelistCopy@2x.png"/><a>        
                                 </div>
                             </div>    
                         </div>
