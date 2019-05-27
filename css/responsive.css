@@ -293,7 +293,6 @@ input[type="image"] {
 .overlay-content a:hover,
 .overlay-content a.active,
 .overlay-content a.current {
-  text-shadow: 0 0 .65px black, 0 0 .65px rgb(75, 196, 143);
   color: #000;
 }
 
