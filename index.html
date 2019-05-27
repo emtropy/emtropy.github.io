@@ -31,6 +31,11 @@
         <link href="library/jquery.toast.min.css" rel="stylesheet"/>
 
         <script>
+                            console.log(screen.width);
+            if (screen.width <= 699) {
+                console.log(screen.width);
+                document.location = "mobile.html";
+            }
 
             $(document).ready(function() {
                 
@@ -186,7 +191,7 @@
                     <div class="col-md-4 col-lg-6 col-sm-4">                
                         <a class="div-head">
                             Instrumenting a <br>
-                            <span>Culture of  </span><span class="word" id="js-rotate">feedback, learning, leadership, trust   </span>                       
+                            <span>Culture of  </span><span class="word" id="js-rotate">feedback, learning, leadership, trust</span>                       
                         </a>
                         <p class="mt-5" style="line-height: 35px; letter-spacing: 0.5; font-size: 18px; font-family:'Muli', sans-serif;">Winning cultures happen through small actions, habits, and choices. We help you unlock organizational potential with small changes. </p>
                         <div class="wrap1 mt-5">

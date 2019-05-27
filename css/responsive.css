@@ -62,6 +62,32 @@ input::placeholder {
     transform: translateY(-5px);
   }
 
+  .button-mobile {
+    width: 100%;
+    height: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 800;
+    color: rgb(71, 71, 71);
+    background-color: rgb(131, 225, 188);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 10px 18px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    }
+  
+  .button-mobile:hover {
+    background-color: rgb(164, 238, 209);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    color: rgb(0, 0, 0);
+    transform: translateY(-5px);
+  }
 
   
   .topnav {
@@ -153,22 +179,7 @@ input::placeholder {
   transform: translateY(-5px);
 }
 
-.word {
-  display: inline-block;
-  font-family:'Lato', sans-serif; 
-  letter-spacing: 0.91; 
-  font-size: 45px; 
-  line-height: 65px; 
-  font-weight: bold; 
-  color: black;
-  border: none;
-  white-space: pre;
-}
-
-@media screen and (min-width: 768) {
-
   .word {
-    display: block;
     font-family:'Lato', sans-serif; 
     letter-spacing: 0.91; 
     font-size: 45px; 
@@ -178,7 +189,7 @@ input::placeholder {
     border: none;
     white-space: pre;
   }
-}
+
 
 .line {
   border-bottom: 1px solid rgb(237, 236, 252);
@@ -226,4 +237,35 @@ input[type="image"] {
   letter-spacing: 0.64; 
   font-weight: 800; 
   color: rgb(0,0,0);
+}
+
+.mob-topnav {
+  overflow: hidden;
+  background-color: #fff;
+  position: relative;
+}
+
+.mob-topnav #myLinks {
+  display: none;
+}
+
+.mob-topnav a {
+  
+  color: black;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+.mob-topnav a.icon {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/* Add a grey background color on mouse-over */
+.mob-topnav a:hover {
+  background-color: #fff;
 }

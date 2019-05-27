@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Emtropy</title>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81044946-6"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', 'UA-81044946-6');
+            </script>
+
+           <!-- Bootstrap core CSS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <link href="library/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://www.gstatic.com/firebasejs/4.7.0/firebase.js"></script>
+        <link rel="stylesheet" href="library/morphext.css">
+        <link rel="stylesheet" href="library/animate.css">
+
+        <script src="library/morphext.min.js"></script>
+
+        <script src="library/jquery.toast.min.js"></script>
+        <link href="library/jquery.toast.min.css" rel="stylesheet"/>
+
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myLinks");
+                if (x.style.display === "block") {
+                    x.style.display = "none";
+                } else {
+                    x.style.display = "block";
+                }
+            }
+
+            $(document).ready(function() {
+                
+                $('a[href=#1]').closest(".navbar-nav").find(".nav-link").removeClass("current");
+                $('a[href=#1]').addClass("current");
+                
+                $("#js-rotate").Morphext({
+                    // The [in] animation type. Refer to Animate.css for a list of available animations.
+                    animation: "fadeIn",
+                    // An array of phrases to rotate are created based on this separator. Change it if you wish to separate the phrases differently (e.g. So Simple | Very Doge | Much Wow | Such Cool).
+                    separator: ",",
+                    // The delay between the changing of each phrase in milliseconds.
+                    speed: 2000,
+                    complete: function () {
+                        // Called after the entrance animation is executed.
+                    }
+                });
+
+                $('a[href*=#]').bind('click', function(e) {
+                    var target = $(this).attr("href");
+                    
+                    // perform animated scrolling by getting top-position of target-element and set it as scroll target
+                    $(this).closest(".navbar-nav").find(".nav-link").removeClass("current");
+                    $(this).addClass("current");
+
+                    if(target == "#4") {
+                        $('html, body').stop().animate({
+                            scrollTop: $(target).offset().top + 50
+                        }, 600);
+                    } else {
+                        $('html, body').stop().animate({
+                                scrollTop: $(target).offset().top - 120
+                        }, 600);
+                    }
+                });
+
+                $("#logoTop").on('click', function(e) {
+                    $('a[href=#1]').closest(".navbar-nav").find(".nav-link").removeClass("current");
+                    $('a[href=#1]').addClass("current");
+
+                    $('html, body').stop().animate({
+                        scrollTop: 0
+                    }, 600);
+                })
+            });
+
+            $(window).scroll(function() {
+                console.log('scrolling');
+
+                var scrollDistance = $(window).scrollTop();
+                if(scrollDistance <= 10)
+                    $('#header').removeClass('line');
+                else 
+                    $('#header').addClass('line');
+ 
+                var scrollPos = $(document).scrollTop() + 100;
+
+                $('#navbarTop a').each(function () {
+                    var currLink = $(this);
+
+                    var refElement = $(currLink.attr("href"));
+                    if (refElement.position().top <= scrollPos && refElement.position().top + 
+                    
+                    refElement.height() > scrollPos) {
+                        $('#navbarTop ul li a').removeClass("current");
+                        currLink.addClass("current");
+                    } else{
+                        currLink.removeClass("current");
+                    }
+                });
+            }).scroll();
+
+            var config = {
+                apiKey: "AIzaSyC-X2-Q-Lx2dWYh0LhzMhePz7Shy51G4sU",
+                authDomain: "emtropy-labs-website.firebaseapp.com",
+                databaseURL: "https://emtropy-labs-website.firebaseio.com",
+                projectId: "emtropy-labs-website",
+                storageBucket: "emtropy-labs-website.appspot.com",
+                messagingSenderId: "307259816607"
+            };
+            
+            firebase.initializeApp(config);
+
+            var dbRef = firebase.database();
+            var emailRef = dbRef.ref().child('users');
+
+            function submitEmail() {
+			//Grab order data from the form
+                var user = {
+                    name: $('#name').val(), //another way you could write is $('#myForm [name="fullname"]').
+                    emailContact: $('#emailContact').val(), //another way you could write is $('#myForm [name="fullname"]').
+                    phone: $('#phone').val()
+                };
+                
+                //'push' (aka add) your order to the existing list
+                console.log(user);
+                emailRef.push(user); //'orders' is the name of the 'collection' (aka database table)
+
+                $.toast({heading: 'Saved Successfully!', position: 'top-center'});
+    		};
+        </script>
+
+        <!-- Custom styles for this template -->
+        <link href="css/responsive.css" rel="stylesheet">
+
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cabin" /> -->
+    </head>
+    <body style="position: relative;" class="pb-0">
+        <div id="header" class="container-fluid pb-0" style="position: fixed; background-color: white; top: 0; left: 0; z-index: 8;">
+            <div class="mob-topnav">
+                <input id="logoTop" type="image" class="m-2 navbar-brand" src="./assets/logo@2x.png" style="width: 130px">                                    
+                <div id="myLinks">
+                    <a class="nav-link pb-3" href="#1"><span style="font-family:'Lato', sans-serif; color: rgb(53, 53, 53); font-size: 14px;">Home</span></a>
+                    <a class="nav-link pb-3" href="#2"><span style="font-family:'Lato', sans-serif; color: rgb(53, 53, 53); font-size: 14px;">How it works</span></a>
+                    <a class="nav-link pb-3" href="#3"><span style="font-family:'Lato', sans-serif; color: rgb(53, 53, 53); font-size: 14px;">Machine Learning</span></a>
+                    <a class="nav-link pb-3" href="#4"><span style="font-family:'Lato', sans-serif; color: rgb(53, 53, 53); font-size: 14px;">Features</span></a>
+                    <a class="nav-link pb-3" href="#5"><span style="font-family:'Lato', sans-serif; color: rgb(53, 53, 53); font-size: 14px;">Contact Us</span></a>
+                </div>
+                <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div class="container-fluid pb-0" style="z-index: 8;">
+            <div class="desc-section" style="z-index: 8; margin-top: 8%; width: 100%;">
+                <div id="1" class="desc-section p-3 row">
+                    <img src="./assets/HeroImage1.png" style="width: 90%; height: 90%"/>
+                </div>
+                <div class="desc-section p-3 row">
+                    <a class="div-head">
+                        Instrumenting a
+                        <span>Culture of</span><br><span class="word" id="js-rotate">feedback, learning, leadership, trust</span>                       
+                    </a>
+                    <p class="mt-5" style="line-height: 35px; letter-spacing: 0.5; font-size: 18px; font-family:'Muli', sans-serif;">Winning cultures happen through small actions, habits, and choices. We help you unlock organizational potential with small changes. </p>
+                </div>
+                <div class="desc-section p-3 row">
+                    <input type="email" class="form-control" id="email" style="height: 50px; font-family: 'Muli', sans-serif; letter-spacing: 0.29px; line-height: 0.32; font-size: 14px;" placeholder="Work Email">                            
+                    <button class="mt-4 button-mobile">GET ACCESS</button>                
+                </div>
+                <div id="2" class="desc-section p-2" style="width: 100%; margin-top: 15%">
+                    <h1 style="text-align:center;  font-family:'Lato', sans-serif; align-self: center; font-size: 38px; letter-spacing: 0.45; line-height: 60px; font-weight: 800;">How it works</h1>
+                    <div class="row" style="text-align:center;  margin-top: 8%">
+                        <div class="col-md-6 col-lg-3 pt-3">
+                            <img src="./assets/360Feedbackicon.png" style="width:50%"/>
+    
+                            <h3 class="mt-4 mb-4" style="font-family:'Lato', sans-serif; font-size: 18px; line-height: 25px; letter-spacing: 0.64; font-weight: 800; color: rgb(0,0,0);">360 Feedback</h3>
+                            <p style="line-height: 30px; letter-spacing: 0.5; font-size: 16px; font-weight: 500; font-family:'Muli', sans-serif;">Share and request feedback from your managers, peers and direct reports. </p>
+                        </div>
+                        <div class="col-lg-1"></div>
+                        <div class="col-md-6 mt-5 col-lg-3">
+                            <img src="./assets/skillAnalysisIcon.png" style="width:50%">
+    
+                            <h3 class="mt-4 mb-4" style="font-family:'Lato', sans-serif; font-size: 18px; line-height: 25px; letter-spacing: 0.64; font-weight: 800; color: rgb(0,0,0);">Skill Analysis</h3>
+                            <p style="line-height: 30px; letter-spacing: 0.5; font-size: 16px; font-weight: 500; font-family:'Muli', sans-serif;">Our patented machine learning engine identifies and prioritizes.</p>
+                        </div>
+                        <div class="col-lg-1"></div>
+                        <div class="col-md-6 mt-5 col-lg-3">
+                            <img src="./assets/developmentIcon.png"  style="width:40%"/>
+    
+                            <h3  class="mt-4 mb-4" style="font-family:'Lato', sans-serif; font-size: 18px; line-height: 25px; letter-spacing: 0.64;font-weight: 800; color: rgb(0,0,0);">Development</h3>
+                            <p style="line-height: 30px; color: black; letter-spacing: 0.5; font-size: 16px; font-weight: 500; font-family:'Muli', sans-serif;">Personalized microlearning programs closes skill gaps and fosters employee engegement.</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="3" class="desc-section p-2" style="margin-top: 15%; margin-bottom: 5%; width: 100%;">
+                    <h1 style="text-align:center;  font-family:'Lato', sans-serif; align-self: center; font-size: 38px; letter-spacing: 0.45; line-height: 60px; font-weight: 800;">Machine Learning</h1>
+                    <p class="mb-4" style="align-self: center; text-align: center; line-height: 30px; letter-spacing: 0.5; font-size: 16px; font-family:'Muli', sans-serif;">We use a smart machine learning engine to deliver skill <br> analysis and personalized microlearning programs.</p>
+                    <div>
+                        <img style="text-align: center; width: 100%" src="./assets/group2.png"/>
+                        <p class="ml-3" style="align-self: center; color: rgb(195, 195, 195); line-height: 30px; letter-spacing: 0.44; font-size: 12px; font-family:'Muli', sans-serif;">Organisation Sentiment analysis</p>
+                    </div>
+                    <div class="mt-4">
+                        <img style="text-align: center; width: 100%" src="./assets/behaviourAnalysis.png"/>
+                        <p class="ml-3 mt-0" style="align-self: center; color: rgb(195, 195, 195); line-height: 30px; letter-spacing: 0.44; font-size: 12px; font-family:'Muli', sans-serif;">Individual behaviour analysis</p>
+                    </div>
+                </div> 
+                <div id="4" class="mt-4"  style="padding-top: 15%; padding-bottom: 15%; background-image: url('./assets/pagebackground1.png'), url('./assets/pagebackground2.png'); background-position: top, bottom; height: 800px; width: 101%; background-repeat: no-repeat, no-repeat; background-size: contain">
+                    <div  class="desc-section p-3" style="z-index: 8; width: 100%;">
+                        <h1 style="text-align:center; z-index: 8; font-family:'Lato', sans-serif; align-self: center; font-size: 38px; letter-spacing: 0.45; line-height: 60px; font-weight: 800;">Features</h1>
+                        <div class="row" style="margin-top: 10%">
+                            <div class="col-md-2 col-lg-2 mt-2">
+                                <div style="display: flex">
+                                    <img src="./assets/broadcastingIcon@2x.png" style="align-self: flex-start; height: 40px; width:40px;"/>
+                                    <div class="ml-3">
+                                        <h3 style="font-family:'Lato', sans-serif; font-size: 18px; letter-spacing: 0.64px; line-height: 25px; font-weight: 800; color: rgb(0,0,0);">Broadcasting</h3>        
+                                        <p style="margin-top: 7px; line-height: 25px; letter-spacing: 0.66px; font-size: 14px; font-family:'Muli', sans-serif;">Broadcast vital information across the organisation.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-lg-2 mt-2">
+                                <div style="display: flex">
+                                    <img src="./assets/continuousFeedbackIcon@2x.png" style="align-self: flex-start; height: 40px; width:40px;"/>
+                                    <div class="ml-3">
+                                        <h3 style="font-family:'Lato', sans-serif; font-size: 18px; letter-spacing: 0.64px; line-height: 24px; font-weight: 800; color: rgb(0,0,0);">Continuous Feedback</h3>        
+                                        <p style="margin-top: 7px; line-height: 25px; letter-spacing: 0.66px; font-size: 14px; font-family:'Muli', sans-serif;">Eanble seamless company wide communication.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-lg-2 mt-2">
+                                <div style="display: flex">
+                                    <img src="./assets/microlearningIcon@2x.png" style="align-self: flex-start; height: 40px; width:40px;"/>
+                                    <div class="ml-3">
+                                        <h3 style="font-family:'Lato', sans-serif; font-size: 18px;  letter-spacing: 0.64px; line-height: 24px; font-weight: 800; color: rgb(0,0,0);">Micro Learning</h3>        
+                                        <p style="margin-top: 7px; line-height: 25px; letter-spacing: 0.66px; font-size: 14px; font-family:'Muli', sans-serif;">Personalised learning programs to get 1% better every week.</p>
+                                    </div>                                
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-lg-2 mt-2">
+                                <div style="display: flex">
+                                    <img src="./assets/timleymeetingsIcon@2x.png" style="align-self: flex-start; height: 40px; width:40px;"/>
+                                    <div class="ml-3">
+                                        <h3 style="font-family:'Lato', sans-serif; font-size: 18px; letter-spacing: 0.64px; line-height: 24px; font-weight: 800; color: rgb(0,0,0);">Timely meetings</h3>        
+                                        <p style="margin-top: 7px; line-height: 25px; letter-spacing: 0.66px; font-size: 14px; font-family:'Muli', sans-serif;">Schedule review meetings and set agenda in advance.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-lg-2 mt-2">
+                                <div style="display: flex" >
+                                    <img src="./assets/goalManagementIcon@2x.png" style="align-self: flex-start; height: 40px; width:40px;"/>
+                                    <div class="ml-3">
+                                        <h3 style="font-family:'Lato', sans-serif; font-size: 18px; letter-spacing: 0.64px; line-height: 24px; font-weight: 800; color: rgb(0,0,0);">Goal Management</h3>        
+                                        <p style="margin-top: 7px; line-height: 25px; letter-spacing: 0.66px; font-size: 14px; font-family:'Muli', sans-serif;">Set, manage and track long term organisational goals.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-lg-2 mt-2">
+                                <div style="display: flex">
+                                    <img src="./assets/kudosIcons.png" style="align-self: flex-start; height: 40px; width:40px;"/>
+                                    <div class="ml-3">
+                                        <h3 style="font-family:'Lato', sans-serif; font-size: 18px; letter-spacing: 0.64px; line-height: 24px; font-weight: 800; color: rgb(0,0,0);">Kudos</h3>        
+                                        <p style="margin-top: 7px; line-height: 25px; letter-spacing: 0.66px; font-size: 14px; font-family:'Muli', sans-serif;">Develop a culture of positive feedback and rewards for employees.</p>
+                                    </div>                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>           
+                </div> 
+                <div id="5" class="desc-section p-3" style="margin-top: 10%; width: 100%;">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-5">
+                            <div class="shadow p-5 mb-5 bg-white rounded">
+                                <h3 style="font-family:'Lato', sans-serif; font-size: 18px; line-height: 60px; font-weight: 800; color: rgb(0,0,0);">Try emtropy today!</h3>        
+                                <div class="form-group pr-1">
+                                    <input type="text" class="input-sm form-control input-custom" id="name" placeholder="Name*" required>
+                                    <input type="text" class="input-sm form-control input-custom mt-3" id="emailContact" placeholder="Work Email*" required>
+                                    <input type="text" class="input-sm form-control input-custom mt-3" id="phone" placeholder="Phone">                              
+                                </div>                                    
+                                <button id="bottomSubmit" class="button-custom mt-4 mr-3" onclick="submitEmail();">GET ACCESS</button>
+                            </div>
+                        </div>
+                        <div class="col-lg-1">
+                        </div>
+                        <div class="col-md-6 col-lg-6 mt-3">
+                            <img src="./assets/logo@2x.png"  style="width: 130px"/>
+                            <p class="mt-3" style="line-height: 30px; letter-spacing: 0.51; font-size: 14px; color: black; font-family:'Muli', sans-serif;">Emtropy labs helps organisations become better by using machine learning and personalised micro learning programs</p>
+                            <h3 class="mt-4" style="font-family:'Cabin', sans-serif; font-size: 18px; line-height: 24px; font-weight: 700; color: rgb(0,0,0);">Address</h3>        
+                            <div class="row">
+                                <div class="col-md-6 col-lg-5">
+                                    <p style="line-height: 30px; letter-spacing: 0.51; font-size: 14px; font-family:'Muli', sans-serif;">1B, RMZ nxt, 13 Main,
+                                        Graphite Junction,
+                                        Bangalore, 560066</p>
+                                </div>
+                                <div class="col-lg-1"></div>
+                                <div class="col-md-6 col-lg-4">
+                                    <p style="line-height: 30px; letter-spacing: 0.5; font-size: 14px; font-family:'Muli', sans-serif;">867 Boylston St 5th Floor, Boston, MA 02116, USA</p>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-6 col-lg-5">
+                                    <h3 class="mt-2" style="font-family:'Muli', sans-serif; font-size: 18px; line-height: 24px; font-weight: 700; color: rgb(0,0,0);">Phone</h3>        
+                                    <p style="line-height: 30px; font-size: 14px; font-family:'Sarabun', sans-serif;">+1 617-421-8692</p>
+                                </div>
+                                <div class="col-lg-1"></div>
+                                <div class="col-md-6 col-lg-4">
+                                    <h3 class="mt-3" style="font-family:'Muli', sans-serif; font-size: 18px; line-height: 24px; font-weight: 700; color: rgb(0,0,0);">Email</h3>        
+                                    <p style="line-height: 30px; color: rgb(86, 79, 202); font-size: 14px; font-family:'Sarabun', sans-serif;">info@emtropylabs.com</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                    <div class="container pl-3" style=" display: flex;">
+                                        <a href="" style="align-self: flex-start; line-height: 30px; color: rgb(86, 79, 202); letter-spacing: 0.1; font-size: 14px; font-family:'Muli', sans-serif;">Privacy</p>        
+                                        <a class="ml-5" href="" style="align-content: flex-end; line-height: 30px; color: rgb(86, 79, 202); letter-spacing: 0.1; font-size: 14px; font-family:'Muli', sans-serif;">Terms of use</p>        
+                                    </div>
+                            </div>
+                            <div class="row">                                
+                                <div class="container mb-3" style=" display: flex;">
+                                    <a href="https://www.linkedin.com" target="_blank"><img style="align-self: flex-start; width: 40px; height: 40px" src="./assets/linkedin.png" srcset="./assets/linkedin.png 1x, ./assets/linkedin@2x.png 2x"/></a>
+                                    <a href="https://www.twitter.com" target="_blank"><img class="ml-2" style="width: 40px; height: 40px" src="./assets/twitter.png" srcset="./assets/twitter.png 1x, ./assets/twitter@2x.png 2x"/></a>
+                                    <a href="https://www.angelist.com" target="_blank"><img class="ml-2" style="width: 40px; height: 40px" src="./assets/angelist.png" srcset="./assets/angelist.png 1x, ./assets/angelist@2x.png 2x"/><a>        
+                                </div>
+                            </div>    
+                        </div>
+                    </div>                
+                </div>       
+            </div>
+        </div>
+    </body>
+</html>
